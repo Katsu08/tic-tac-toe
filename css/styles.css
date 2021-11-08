@@ -1,0 +1,52 @@
+.card {
+  width: 25rem;
+  height: 30vh;
+  min-height: 30rem;
+}
+
+#gameBoard {
+  height: 95%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px;
+}
+
+#gameBoard div {
+  border: 1px solid gray;
+  cursor: pointer;
+  position: relative;
+}
+
+#gameBoard div:not([class*="played"]):hover::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: var(--bs-warning);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#gameBoard [class*="played"]::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#gameBoard .played0::before {
+  color: var(--bs-danger);
+  content: 'X';
+}
+
+#gameBoard .played1::before {
+  color: var(--bs-info);
+  content: 'O';
+}
